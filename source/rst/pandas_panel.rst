@@ -56,15 +56,15 @@ countries and assign it to ``realwage``.
 
 .. only:: html
 
-    The dataset ``pandas_panel/realwage.csv`` can be downloaded
-    :download:`here <_static/lecture_specific/pandas_panel/realwage.csv>`.
+    The dataset can be downloaded :download:`here <_static/lecture_specific/pandas_panel/realwage.csv>` and can also be found here:
 
 .. only:: latex
 
-    The dataset ``pandas_panel/realwage.csv`` can be downloaded
-    `here <https://lectures.quantecon.org/_downloads/pandas_panel/realwage.csv>`__.
+    The dataset can be downloaded `here <https://lectures.quantecon.org/_downloads/pandas_panel/realwage.csv>`__ and can also be found here:
 
-Make sure the file is in your current working directory
+.. code-block:: python3
+   
+   url1 = 'https://raw.githubusercontent.com/QuantEcon/lecture-source-py/master/source/_static/lecture_specific/pandas_panel/realwage.csv'
 
 .. code-block:: python3
 
@@ -76,7 +76,7 @@ Make sure the file is in your current working directory
     # Reduce decimal points to 2
     pd.options.display.float_format = '{:,.2f}'.format
 
-    realwage = pd.read_csv('https://github.com/QuantEcon/QuantEcon.lectures.code/raw/master/pandas_panel/realwage.csv')
+    realwage = pd.read_csv(url1)
 
 
 Let's have a look at what we've got to work with
@@ -193,17 +193,19 @@ function.
 
 .. only:: html
 
-    The CSV file can be found in ``pandas_panel/countries.csv`` and can be downloaded
-    :download:`here <_static/lecture_specific/pandas_panel/countries.csv>`.
+    The CSV file can be downloaded :download:`here <_static/lecture_specific/pandas_panel/countries.csv>` and can be found:
 
 .. only:: latex
 
-    The CSV file can be found in ``pandas_panel/countries.csv`` and can be downloaded
-    `here <https://lectures.quantecon.org/_downloads/pandas_panel/countries.csv>`__.
+    The CSV file can be downloaded `here <https://lectures.quantecon.org/_downloads/pandas_panel/countries.csv>`__ and can be found:
 
 .. code-block:: python3
 
-    worlddata = pd.read_csv('https://github.com/QuantEcon/QuantEcon.lectures.code/raw/master/pandas_panel/countries.csv', sep=';')
+    url2 = 'https://raw.githubusercontent.com/QuantEcon/lecture-source-py/master/source/_static/lecture_specific/pandas_panel/countries.csv'
+
+.. code-block:: python3
+
+    worlddata = pd.read_csv(url2, sep=';')
     worlddata.head()
 
 
@@ -547,17 +549,18 @@ in Europe by age and sex from `Eurostat <http://ec.europa.eu/eurostat/data/datab
 
 .. only:: html
 
-    The dataset ``pandas_panel/employ.csv`` can be downloaded
-    :download:`here <_static/lecture_specific/pandas_panel/employ.csv>`.
+    The dataset can be downloaded :download:`here <_static/lecture_specific/pandas_panel/employ.csv>` and can be found:
 
 .. only:: latex
 
-    The dataset ``pandas_panel/employ.csv`` can be downloaded
-    `here <https://lectures.quantecon.org/_downloads/pandas_panel/employ.csv>`__.
+    The dataset can be downloaded `here <https://lectures.quantecon.org/_downloads/pandas_panel/employ.csv>`__ and can be found:
+
+.. code-block:: python3
+
+    url3 = 'https://raw.githubusercontent.com/QuantEcon/lecture-source-py/master/source/_static/lecture_specific/pandas_panel/employ.csv'
 
 Reading in the CSV file returns a panel dataset in long format. Use ``.pivot_table()`` to construct
 a wide format dataframe with a ``MultiIndex`` in the columns.
-
 
 
 Start off by exploring the dataframe and the variables available in the
@@ -586,7 +589,7 @@ Exercise 1
 
 .. code-block:: python3
 
-    employ = pd.read_csv('https://github.com/QuantEcon/QuantEcon.lectures.code/raw/master/pandas_panel/employ.csv')
+    employ = pd.read_csv(url3)
     employ = employ.pivot_table(values='Value',
                                 index=['DATE'],
                                 columns=['UNIT','AGE', 'SEX', 'INDIC_EM', 'GEO'])
